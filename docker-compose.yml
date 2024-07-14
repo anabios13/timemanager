@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  java:
+    build: ./
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:YOUR_LINK
+      - SPRING_DATASOURCE_USERNAME=YOUR_LOGIN
+      - SPRING_DATASOURCE_PASSWORD=YOUR_PASS
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    ports:
+      - 8080:8080
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: YOUR_DB_NAME
+      POSTGRES_USER: YOUR_LOGIN
+      POSTGRES_PASSWORD: YOUR_PASS
+    volumes:
+      - .:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8082:8080
