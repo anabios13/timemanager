@@ -15,4 +15,5 @@ public class RecordDTO {
     private Long projectId;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private String description;
 }
