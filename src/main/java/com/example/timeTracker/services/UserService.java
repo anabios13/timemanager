@@ -21,8 +21,8 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public List<UserDTO> getAllUsers() {
         return userRepository.findAll().stream()
@@ -35,22 +35,22 @@ public class UserService {
                 .map(userMapper::toDTO);
     }
 
-//    public UserDTO createUser(UserDTO userDTO) {
-//        User user = userMapper.toEntity(userDTO);
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        return userMapper.toDTO(userRepository.save(user));
-//    }
+    public UserDTO createUser(UserDTO userDTO) {
+        User user = userMapper.toEntity(userDTO);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userMapper.toDTO(userRepository.save(user));
+    }
 
-//    public Optional<UserDTO> updateUser(Long id, UserDTO userDTO) {
-//        return userRepository.findById(id).map(existingUser -> {
-//            existingUser.setUsername(userDTO.getUsername());
-//            existingUser.setRole(userDTO.getRole());
-//            if (userDTO.getPassword() != null) {
-//                existingUser.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-//            }
-//            return userMapper.toDTO(userRepository.save(existingUser));
-//        });
-//    }
+    public Optional<UserDTO> updateUser(Long id, UserDTO userDTO) {
+        return userRepository.findById(id).map(existingUser -> {
+            existingUser.setUsername(userDTO.getUsername());
+            existingUser.setRole(userDTO.getRole());
+            if (userDTO.getPassword() != null) {
+                existingUser.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+            }
+            return userMapper.toDTO(userRepository.save(existingUser));
+        });
+    }
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);

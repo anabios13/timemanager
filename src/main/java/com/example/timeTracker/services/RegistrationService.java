@@ -3,12 +3,12 @@ package com.example.timeTracker.services;
 import com.example.timeTracker.DTO.UserDTO;
 import com.example.timeTracker.models.User;
 import com.example.timeTracker.repositories.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import jakarta.transaction.Transactional;
 import java.util.Collections;
 
 @Service
@@ -33,12 +33,12 @@ public class RegistrationService {
         User user = new User();
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
-        String role = "USER_ROLE";
+        String role = "ROLE_USER";
         user.setRole(role);
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             return ResponseEntity.badRequest().body(Collections.singletonMap("error", "Username already exists"));
         }
         register(user, role);
-        return ResponseEntity.ok(Collections.singletonMap("message","Registration successful"));
+        return ResponseEntity.ok(Collections.singletonMap("message", "Registration successful"));
     }
 }
