@@ -6,9 +6,9 @@ services:
     depends_on:
       - db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:YOUR_LINK
-      - SPRING_DATASOURCE_USERNAME=YOUR_LOGIN
-      - SPRING_DATASOURCE_PASSWORD=YOUR_PASS
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/timetracker
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=12345
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     ports:
       - 8080:8080
@@ -17,11 +17,11 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_DB: YOUR_DB_NAME
-      POSTGRES_USER: YOUR_LOGIN
-      POSTGRES_PASSWORD: YOUR_PASS
+      POSTGRES_DB: timetracker
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
     volumes:
-      - .:/docker-entrypoint-initdb.d
+       - .:/docker-entrypoint-initdb.d
 
   adminer:
     image: adminer
