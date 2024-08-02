@@ -19,7 +19,7 @@
    "login": "admin",
    "password": "c8p6"
 
-Эндпоинты
+<h3>Эндпоинты</h3>
 UserController(ROLE ADMIN)
 Создание пользователя (POST /api/users)
 {
