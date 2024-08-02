@@ -25,7 +25,7 @@ UserController(ROLE ADMIN)
 {<br>
 "username": "user1",
 "password": "password1",
-"role": "ROLE_USER"
+"role": "ROLE_USER"<br>
 }<br>
 Получение всех пользователей (GET /api/users)<br>
 {}<br>
@@ -36,16 +36,16 @@ UserController(ROLE ADMIN)
 {<br>
 "username": "updatedUser1",
 "password": "updatedPassword1",
-"role": "ROLE_USER"
+"role": "ROLE_USER"<br>
 }<br>
 Удаление пользователя (DELETE /api/users/{id})<br>
 {}<br>
 2. ProjectController(ROLE ADMIN)<br>
    Создание проекта (POST /api/projects)<br>
-
+<br>
 {
 "name": "Project 1",
-"description": "Description for Project 1"
+"description": "Description for Project 1"<br>
 }<br>
 Получение всех проектов (GET /api/projects)<br>
 {}<br>
@@ -54,7 +54,7 @@ UserController(ROLE ADMIN)
 Обновление проекта (PUT /api/projects/{id})<br>
 {<br>
 "name": "Updated Project 1",
-"description": "Updated description for Project 1"
+"description": "Updated description for Project 1"<br>
 }<br>
 Удаление проекта (DELETE /api/projects/{id})<br>
 {}<br>
@@ -65,7 +65,7 @@ UserController(ROLE ADMIN)
    "projectId": 1,
    "startTime": "2023-01-01T08:00:00",
    "endTime": "2023-01-01T12:00:00",
-   "description": "Worked on project 1"
+   "description": "Worked on project 1"<br>
    }<br>
    Получение всех записей (GET /api/records)<br>
    {}<br>
@@ -77,7 +77,7 @@ UserController(ROLE ADMIN)
    "projectId": 1,
    "startTime": "2023-01-01T09:00:00",
    "endTime": "2023-01-01T13:00:00",
-   "description": "Updated work on project 1"
+   "description": "Updated work on project 1"<br>
    }<br>
    Удаление записи (DELETE /api/records/{id})<br>
 
@@ -87,12 +87,12 @@ UserController(ROLE ADMIN)
 
 {<br>
 "username": "user1",
-"password": "password1"
+"password": "password1"<br>
 }<br>
 Регистрация пользователя (POST /register)<br>
 
 {<br>
 "username": "newuser",
 "password": "newpassword",
-"role": "ROLE_USER"
+"role": "ROLE_USER"<br>
 }<br>
